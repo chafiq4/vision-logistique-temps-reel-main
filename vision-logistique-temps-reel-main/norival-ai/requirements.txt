@@ -1,0 +1,5 @@
+opencv-python
+kafka-python-ng
+numpy
+ultralytics
+easyocr

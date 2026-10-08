@@ -1,0 +1,6 @@
+['Showing lines 1 to 800']
+['Showing lines 14 to 14']
+[]
+[]
+['Showing lines 1 to 800\r', 'Showing lines 14 to 14\r']
+[]

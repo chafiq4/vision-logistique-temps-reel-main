@@ -1,0 +1,103 @@
+Created At: 2026-08-23T22:59:13Z
+Completed At: 2026-08-23T22:59:13Z
+File Path: `file:///c:/Users/pc/Desktop/stage_4iir/norival-frontend/src/app/app.component.ts`
+Total Lines: 1417
+Total Bytes: 50681
+Showing lines 1 to 800
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import { Component, OnInit, AfterViewInit } from '@angular/core';
+2: import { CommonModule } from '@angular/common';
+3: import { FormsModule } from '@angular/forms';
+4: import { Store } from '@ngrx/store';
+5: import { selectChantiers, selectConducteurs, selectVehicules, selectLoading } from './state/norival.selectors';
+6: import { NorivalActions } from './state/norival.actions';
+7: import { Chantier, Conducteur, Vehicule } from './core/models/models';
+8: import * as L from 'leaflet';
+9: import { Chart, registerables } from 'chart.js';
+10: import { Router, NavigationEnd, RouterModule } from '@angular/router';
+11: import { filter } from 'rxjs/operators';
+12: 
+13: Chart.register(...registerables);
+14: 
+15: import { NorivalService } from './core/services/norival.service';
+16: import { WebsocketService } from './core/services/websocket.service';
+17: import { ChatComponent } from './components/chat/chat.component';
+18: 
+19: @Component({
+20:   selector: 'app-root',
+21:   standalone: true,
+22:   imports: [CommonModule, FormsModule, ChatComponent, RouterModule],
+23:   templateUrl: './app.component.html',
+24:   styleUrls: ['./app.component.css']
+25: })
+26: export class AppComponent implements OnInit, AfterViewInit {
+27:   isNewRoute = false;
+28:   // Observables from NgRx Store
+29:   chantiers$ = this.store.select(selectChantiers);
+30:   conducteurs$ = this.store.select(selectConducteurs);
+31:   vehicules$ = this.store.select(selectVehicules);
+32:   loading$ = this.store.select(selectLoading);
+33: 
+34:   // Active Tab: 'map' | 'chantiers' | 'conducteurs' | 'vehicul
+<truncated 29180 bytes>
+onst remainingSec = Math.max(0, this.totalDurationSec * ratio);
+763:                   const mins = Math.ceil(remainingSec / 60);
+764:                   if (mins >= 60) {
+765:                     const h = Math.floor(mins / 60);
+766:                     const m = mins % 60;
+767:                     this.estimatedDurationText = `${h}h ${m}min`;
+768:                   } else {
+769:                     this.estimatedDurationText = `${mins} min`;
+770:                   }
+771:                 }
+772:                 
+773:                 this.norivalService.updateVehiculePosition(this.assignedVehicule.id, pos[0], pos[1]).subscribe();
+774:                 this.gpsCurrentIndex += stepSize;
+775:               } else {
+776:                 this.estimatedDurationText = "Arrivée imminente !";
+777:                 clearInterval(this.gpsSimulationInterval);
+778:               }
+779:             }, 3000);
+780:           }
+781:         },
+782:         error: (err) => console.error('Erreur lors du départ du véhicule', err)
+783:       });
+784:     }
+785:   }
+786: 
+787:   declarerArrivee() {
+788:     if (this.gpsSimulationInterval) clearInterval(this.gpsSimulationInterval);
+789:     
+790:     if (this.assignedVehicule && this.targetChantierId) {
+791:       this.norivalService.vehiculeArrivee(this.assignedVehicule.id, this.targetChantierId).subscribe({
+792:         next: (updatedVehicule) => {
+793:           this.assignedVehicule = updatedVehicule;
+794:           const chantierName = this.chantiersList.find(c => c.id == this.targetChantierId)?.nom || 'Destination';
+795:           this.addDriverLog(`Arrivée confirmée sur ${chantierName}`, 'success');
+796:           this.loadDriverData();
+797:           this.updateDriverMap();
+798:         },
+799:         error: (err) => console.error('Erreur lors de l\'arrivée du véhicule', err)
+800:       });
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+Created At: 2026-08-23T23:26:27Z
+Completed At: 2026-08-23T23:26:28Z
+
+				The command completed successfully.
+				Output:
+				import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'norival-frontend';
+}
+
+

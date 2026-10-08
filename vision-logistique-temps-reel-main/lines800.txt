@@ -1,0 +1,70 @@
+Created At: 2026-08-23T23:17:46Z
+Completed At: 2026-08-23T23:17:46Z
+File Path: `file:///c:/Users/pc/Desktop/stage_4iir/norival-frontend/src/app/app.component.html`
+Total Lines: 1131
+Total Bytes: 63610
+Showing lines 70 to 200
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+70:           <span class="metric-label">ALERTES CRITIQUES:</span>
+71:           <span class="metric-value text-cyan">FLUX TEMPS RÉEL</span>
+72:         </div>
+73:         <div class="metric-pill">
+74:           <span class="metric-label">CAMÉRAS IA FLOOD:</span>
+75:           <span class="metric-value text-green">4 FLUX CONNECTÉS</span>
+76:         </div>
+77:       </ng-container>
+78: 
+79:       <div class="metric-pill font-mono">
+80:         <span class="metric-label">SYS TIME:</span>
+81:         <span class="metric-value text-muted">2026-07-24 17:37 UTC</span>
+82:       </div>
+83:     </div>
+84: 
+85:     <!-- Actions & Status -->
+86:     <div class="header-actions">
+87:       <button class="tactical-btn shutter-btn" (click)="triggerAi()">
+88:         <span class="shutter-icon">📷</span>
+89:         <span>LANCER CAMÉRA IA</span>
+90:       </button>
+91:       <button class="tactical-btn chat-btn" (click)="toggleChat()" *ngIf="userRole === 'ADMIN' || userRole === 'SITE_MANAGER'" style="background: #0ea5e9; color: white;">
+92:         <span class="shutter-icon">💬</span>
+93:         <span>CHAT</span>
+94:       </button>
+95:       <button class="tactical-btn ai-btn" (click)="toggleAiAssistant()" *ngIf="userRole === 'ADMIN'" style="background: #8b5cf6; color: white; border-color: #8b5cf6; box-shadow: 0 0 10px rgba(139, 92, 246, 0.5); margin-left: 10px;">
+96:         <span class="shutter-icon">🤖</span>
+97:         <span>ASSISTANT IA</span>
+98:       </button>
+99:       <div class="user-badge" style="cursor: pointer;" (click)="logout()">
+100:       
+<truncated 3198 bytes>
+" class="tactical-alert-item" [ngClass]="alert.level">
+173:               <div class="alert-header">
+174:                 <span class="alert-badge">{{ alert.type }} - {{ alert.statut }}</span>
+175:                 <span class="alert-time font-mono">{{ alert.time }}</span>
+176:               </div>
+177:               <p class="alert-text">{{ alert.message }}</p>
+178:               <div class="alert-actions" *ngIf="alert.statut === 'ACTIVE'" style="margin-top: 8px; display: flex; gap: 8px;">
+179:                 <button class="tactical-btn" style="padding: 4px 8px; font-size: 0.75rem;" (click)="updateAlertStatus(alert.id, 'RESOLUE')">✅ Résoudre</button>
+180:                 <button class="tactical-btn danger" style="padding: 4px 8px; font-size: 0.75rem;" (click)="updateAlertStatus(alert.id, 'CLOTUREE')">🔒 Clôturer</button>
+181:               </div>
+182:               <div class="alert-actions" *ngIf="alert.statut === 'CLOTUREE'" style="margin-top: 8px;">
+183:                 <button class="tactical-btn ghost" style="padding: 4px 8px; font-size: 0.75rem;" (click)="updateAlertStatus(alert.id, 'ACTIVE')">🔓 Réouvrir</button>
+184:               </div>
+185:             </div>
+186:           </div>
+187:         </div>
+188:       </div>
+189:     </section>
+190: 
+191:     <!-- 2. CHANTIERS MANAGEMENT -->
+192:     <section class="viewport-tab" [class.active]="activeTab === 'chantiers'">
+193:       <div class="command-grid">
+194:         <!-- Input Drawer Card -->
+195:         <div class="tactical-card form-drawer" *ngIf="userRole === 'ADMIN'">
+196:           <div class="card-top-bar">
+197:             <span class="card-tag">{{ editingChantierId ? 'ÉDITION CHANTIER' : 'NOUVEAU CHANTIER' }}</span>
+198:           </div>
+199:           <form (submit)="submitChantier()" class="tactical-form">
+200:             <div class="field-group">
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
